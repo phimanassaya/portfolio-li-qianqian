@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Prompt:wght@500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600&family=Fredoka:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   Theme tokens — one block per theme, all keyed by [data-theme] on <html>.
+   :root holds "classic" as the pre-hydration fallback so there is no flash
+   before ThemeProvider's effect runs. Only CSS custom properties change
+   between themes; every component reads these vars, never a literal color.
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+  --font-heading-base: 'Prompt', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-heading-base), 'Noto Sans Thai', ui-serif, Georgia, serif;
+  --font-body: 'Inter', 'Noto Sans Thai', ui-sans-serif, system-ui, sans-serif;
+  --font-button: var(--font-heading);
+
+  --color-bg: #0B0B0D;
+  --color-surface: #141414;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-heading: #FFFFFF;
+  --color-body: #B3B3B3;
+  --color-secondary: #8A8A8A;
+  --color-primary: #F4E409;
+  --color-primary-100: #FBF6A8;
+  --color-primary-300: #F7EC5C;
+  --color-primary-600: #C7B807;
+  --color-primary-800: #8C8205;
+  --color-accent: #E8D400;
+  --color-accent-300: #F3E866;
+  --color-accent-600: #B8A700;
+  --color-success: #34D399;
+  --color-error: #F87171;
+
+  --radius-card: 0px;
+  --radius-btn: 0px;
+  --radius-badge: 0px;
+
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-lift: 0 24px 48px rgba(244, 228, 9, 0.1);
+  --shadow-glow: 0 0 24px rgba(244, 228, 9, 0.25);
+  --shadow-glow-accent: 0 0 20px rgba(232, 212, 0, 0.22);
+
+  --color-selection-bg: rgba(244, 228, 9, 0.25);
+  --color-selection-text: #FFFFFF;
+
+  background-color: var(--color-bg);
+  color: var(--color-heading);
+}
+
+html[lang='th'] {
+  --font-heading: 'Noto Sans Thai', var(--font-heading-base), ui-serif, Georgia, serif;
+  --font-body: 'Noto Sans Thai', 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+[data-theme='neon'] {
+  color-scheme: dark;
+  --font-heading-base: 'Prompt', ui-sans-serif, system-ui, sans-serif;
+  --font-button: var(--font-heading);
+
+  --color-bg: #0B0B0D;
+  --color-surface: #141414;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-heading: #FFFFFF;
+  --color-body: #B3B3B3;
+  --color-secondary: #8A8A8A;
+  --color-primary: #D4FF3F;
+  --color-primary-100: #F1FFC2;
+  --color-primary-300: #E4FF85;
+  --color-primary-600: #A6CC1F;
+  --color-primary-800: #6F8814;
+  --color-accent: #37E6FF;
+  --color-accent-300: #8FF3FF;
+  --color-accent-600: #1DB8CC;
+  --color-success: #34D399;
+  --color-error: #F87171;
+
+  --radius-card: 0px;
+  --radius-btn: 0px;
+  --radius-badge: 0px;
+
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-lift: 0 24px 48px rgba(55, 230, 255, 0.12);
+  --shadow-glow: 0 0 30px rgba(212, 255, 63, 0.35);
+  --shadow-glow-accent: 0 0 24px rgba(55, 230, 255, 0.32);
+
+  --color-selection-bg: rgba(212, 255, 63, 0.25);
+  --color-selection-text: #FFFFFF;
+}
+
+[data-theme='editorial'] {
+  color-scheme: light;
+  --font-heading-base: 'Fraunces', ui-serif, Georgia, serif;
+  --font-button: var(--font-body);
+
+  --color-bg: #F6EFE4;
+  --color-surface: #EEE3CC;
+  --color-border: rgba(27, 41, 66, 0.14);
+  --color-heading: #1C2430;
+  --color-body: #6B6255;
+  --color-secondary: #8C8375;
+  --color-primary: #1B2942;
+  --color-primary-100: #6E85AA;
+  --color-primary-300: #3F5578;
+  --color-primary-600: #10192B;
+  --color-primary-800: #0A0F1A;
+  --color-accent: #B9925A;
+  --color-accent-300: #D8BD8E;
+  --color-accent-600: #8F6F3F;
+  --color-success: #2F7D5B;
+  --color-error: #C0392B;
+
+  --radius-card: 1rem;
+  --radius-btn: 9999px;
+  --radius-badge: 9999px;
+
+  --shadow-soft: 0 10px 30px rgba(28, 36, 48, 0.1);
+  --shadow-lift: 0 24px 48px rgba(28, 36, 48, 0.16);
+  --shadow-glow: 0 12px 24px rgba(27, 41, 66, 0.22);
+  --shadow-glow-accent: 0 12px 24px rgba(185, 146, 90, 0.28);
+
+  --color-selection-bg: rgba(27, 41, 66, 0.16);
+  --color-selection-text: #1C2430;
+}
+
+[data-theme='candy'] {
+  color-scheme: light;
+  --font-heading-base: 'Fredoka', ui-rounded, ui-sans-serif, system-ui, sans-serif;
+  --font-button: var(--font-body);
+
+  --color-bg: #FFF6EC;
+  --color-surface: #FFFFFF;
+  --color-border: rgba(255, 79, 154, 0.16);
+  --color-heading: #2B1E2E;
+  --color-body: #6E6470;
+  --color-secondary: #9C8FA0;
+  --color-primary: #FF4F9A;
+  --color-primary-100: #FFD6EA;
+  --color-primary-300: #FF8CC1;
+  --color-primary-600: #D62E77;
+  --color-primary-800: #A11F5B;
+  --color-accent: #FFA45C;
+  --color-accent-300: #FFC98F;
+  --color-accent-600: #E8823A;
+  --color-success: #2F9E6E;
+  --color-error: #E14F63;
+
+  --radius-card: 2rem;
+  --radius-btn: 9999px;
+  --radius-badge: 9999px;
+
+  --shadow-soft: 0 10px 30px rgba(255, 79, 154, 0.12);
+  --shadow-lift: 0 24px 48px rgba(255, 79, 154, 0.2);
+  --shadow-glow: 0 12px 24px rgba(255, 79, 154, 0.35);
+  --shadow-glow-accent: 0 12px 24px rgba(255, 164, 92, 0.32);
+
+  --color-selection-bg: rgba(255, 79, 154, 0.18);
+  --color-selection-text: #2B1E2E;
+}
+
+[data-theme='luxury-noir'] {
+  color-scheme: dark;
+  --font-heading-base: 'Playfair Display', ui-serif, Georgia, serif;
+  --font-button: var(--font-body);
+
+  --color-bg: #0B0B0B;
+  --color-surface: #171410;
+  --color-border: rgba(212, 175, 55, 0.35);
+  --color-heading: #F5EFE0;
+  --color-body: #B7AFA0;
+  --color-secondary: #8A8375;
+  --color-primary: #D4AF37;
+  --color-primary-100: #F5E6B3;
+  --color-primary-300: #E6C78B;
+  --color-primary-600: #B8860B;
+  --color-primary-800: #8C6A1D;
+  --color-accent: #7A2436;
+  --color-accent-300: #A5495B;
+  --color-accent-600: #591620;
+  --color-success: #3FA76B;
+  --color-error: #C0453F;
+
+  --radius-card: 1rem;
+  --radius-btn: 9999px;
+  --radius-badge: 9999px;
+
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.45);
+  --shadow-lift: 0 24px 48px rgba(0, 0, 0, 0.55);
+  --shadow-glow: 0 0 40px rgba(212, 175, 55, 0.25);
+  --shadow-glow-accent: 0 0 32px rgba(122, 36, 54, 0.22);
+
+  --color-selection-bg: rgba(212, 175, 55, 0.28);
+  --color-selection-text: #F5EFE0;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--color-bg);
+    color: var(--color-body);
+    font-family: var(--font-body), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    transition: background-color 300ms ease, color 300ms ease;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  section {
+    scroll-margin-top: 96px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-heading);
+    font-family: var(--font-heading), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    color: var(--color-body);
+  }
+}
+
+::selection {
+  background: var(--color-selection-bg);
+  color: var(--color-selection-text);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-link-underline {
+  position: relative;
+}
+
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.3rem;
+  height: 2px;
+  background-color: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 250ms ease;
+}
+
+.nav-link-underline:hover::after,
+.nav-link-underline[aria-current='page']::after {
+  transform: scaleX(1);
+}
+
+/* Editorial ghost-numeral device: large faint outline numerals behind each
+   direct <section> child — the recurring magazine-spread signature. */
+.editorial-index {
+  counter-reset: editorial-section;
+}
+
+.editorial-index > section {
+  counter-increment: editorial-section;
+  position: relative;
+}
+
+.editorial-index > section::before {
+  content: counter(editorial-section, decimal-leading-zero);
+  position: absolute;
+  top: -0.35em;
+  left: 0;
+  z-index: 0;
+  font-family: var(--font-heading), ui-serif, serif;
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(4.5rem, 14vw, 11rem);
+  line-height: 1;
+  color: var(--color-primary);
+  opacity: 0.06;
+  pointer-events: none;
+  user-select: none;
+}
+
+.editorial-index > section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Luxury Noir atmosphere: slow, subtle motion only — never fast or flashy. */
+@keyframes atmosphereDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(3%, -4%) scale(1.06); }
+}
+
+@keyframes emberFloat {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 0.5; }
+  50% { transform: translateY(-18px) translateX(6px); opacity: 0.7; }
+  90% { opacity: 0.4; }
+  100% { transform: translateY(-32px) translateX(-4px); opacity: 0; }
+}
+
+@keyframes shimmerSweep {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 200%; }
+}
+
+@keyframes metalSheen {
+  0%, 100% { transform: translate3d(-12%, 0, 0) rotate(8deg); opacity: 0.45; }
+  50% { transform: translate3d(12%, -3%, 0) rotate(8deg); opacity: 0.85; }
+}
+
+@keyframes spotlightPulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* True edge-to-edge image bleed, breaking out of any centered container.
+   Only safe to use on elements whose containing block is itself
+   horizontally centered on the viewport — do not nest inside an
+   asymmetric grid column. */
+.bleed-full {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* Same trick, but scoped below the lg breakpoint only — for images that
+   should bleed full-width while stacked on mobile/tablet but sit inside a
+   normal grid column once the layout becomes multi-column at lg. */
+@media (max-width: 1023.98px) {
+  .bleed-full-mobile {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+}
