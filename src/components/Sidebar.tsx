@@ -21,16 +21,15 @@ const links = [
 // tier's `data-[lang=en]` rule outranks a plain rule from a bigger tier on specificity alone — the
 // only reliable way to move a value is to restate it, never to assume it "resets" on its own.
 //
-// English has no explicit desktop-only rule: the header's own `max-w-6xl` cap means the nav never
-// actually gets more room past the laptop tier (available width plateaus around 722px regardless of
-// viewport), so English's laptop spacing already IS its desktop spacing — restating the fully
-// original padding/gap at desktop would just reintroduce the clipped Contact button this whole
-// system exists to prevent. Thai never approaches that ceiling, so it restores to the original
-// values untouched.
+// English restates its own tightest values at every tier, including desktop: the six-item nav plus
+// language/theme switchers still doesn't fit inside the header's `max-w-6xl` cap at the universal
+// desktop padding, so desktop deliberately keeps the laptop-tier compaction instead of relaxing back
+// toward NAV_ITEM_UNIVERSAL. Thai and Chinese never approach that ceiling, so they use the universal
+// values unmodified.
 const NAV_ITEM_UNIVERSAL = 'lg:gap-1 lg:px-2.5 laptop:gap-2 laptop:px-3.5 desktop:gap-2 desktop:px-4';
 
 const NAV_ITEM_ENGLISH =
-  'lg:data-[lang=en]:gap-0.5 lg:data-[lang=en]:px-1.5 lg:data-[lang=en]:text-[11px] laptop:data-[lang=en]:gap-1.5 laptop:data-[lang=en]:px-3 laptop:data-[lang=en]:text-xs';
+  'lg:data-[lang=en]:gap-0.5 lg:data-[lang=en]:px-1 lg:data-[lang=en]:text-[10px] laptop:data-[lang=en]:gap-1 laptop:data-[lang=en]:px-2 laptop:data-[lang=en]:text-[11px] desktop:data-[lang=en]:gap-1 desktop:data-[lang=en]:px-2 desktop:data-[lang=en]:text-[11px]';
 
 function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
   const { t, i18n } = useTranslation();
