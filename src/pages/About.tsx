@@ -1,5 +1,18 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import {
+  Brain,
+  BookOpen,
+  Mic2,
+  Gamepad2,
+  MessageCircle,
+  Headset,
+  Users,
+  Handshake,
+  Lightbulb,
+  Presentation,
+  type LucideIcon
+} from 'lucide-react';
 import Card from '../components/ui/Card';
 import SectionTitle from '../components/ui/SectionTitle';
 import Badge from '../components/ui/Badge';
@@ -7,11 +20,15 @@ import useDocumentTitle from '../hooks/useDocumentTitle';
 import { client } from '../data/client';
 import { pickText, pickList } from '../utils/localize';
 
+const interestIcons: LucideIcon[] = [Brain, BookOpen, Mic2, Gamepad2];
+const summaryIcons: LucideIcon[] = [MessageCircle, Headset, Users, Handshake, Lightbulb, Presentation];
+
 function About() {
   const { t, i18n } = useTranslation();
   useDocumentTitle(`${t('nav.about')} | ${client.personal.fullName}`);
   const careerGoals = pickList(client.about.goals, i18n.language);
   const summaryCards = client.about.highlights;
+  const interests = client.interests;
 
   return (
     <div className="editorial-index space-y-28">
@@ -46,6 +63,31 @@ function About() {
         </motion.div>
       </section>
 
+      <section aria-labelledby="interests-heading" className="pb-4">
+        <SectionTitle id="interests-heading" title={t('about.interests.heading')} />
+        <motion.div
+          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {interests.map((item, index) => {
+            const Icon = interestIcons[index] ?? Brain;
+            return (
+              <Card key={item.title.en} className="flex flex-col items-center space-y-4 text-center">
+                <span
+                  className="flex h-20 w-20 items-center justify-center rounded-full border border-primary text-primary"
+                  aria-hidden="true"
+                >
+                  <Icon className="h-9 w-9" />
+                </span>
+                <h3 className="font-heading text-xl font-bold text-heading">{pickText(item.title, i18n.language)}</h3>
+              </Card>
+            );
+          })}
+        </motion.div>
+      </section>
+
       <section aria-labelledby="professional-summary-heading" className="pb-4">
         <SectionTitle
           id="professional-summary-heading"
@@ -56,14 +98,20 @@ function About() {
           className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
         >
-          {summaryCards.map((card) => (
-            <Card key={card.title.en} className="space-y-4">
-              <h3 className="font-heading text-xl font-bold text-heading">{pickText(card.title, i18n.language)}</h3>
-              <p className="text-sm leading-6 text-body">{card.description}</p>
-            </Card>
-          ))}
+          {summaryCards.map((card, index) => {
+            const Icon = summaryIcons[index] ?? MessageCircle;
+            return (
+              <Card key={card.title.en} className="space-y-4">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-primary text-primary" aria-hidden="true">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <h3 className="font-heading text-xl font-bold text-heading">{pickText(card.title, i18n.language)}</h3>
+                <p className="text-sm leading-6 text-body">{card.description}</p>
+              </Card>
+            );
+          })}
         </motion.div>
       </section>
     </div>

@@ -31,9 +31,6 @@ const resources = {
           heading: 'Key Statistics',
           description: 'A quick snapshot of my projects, languages, and current learning focus.'
         },
-        aboutPreview: {
-          heading: 'About Me'
-        },
         featuredProjects: {
           heading: 'Featured Projects',
           description: 'Personal projects built to practice business analysis, system design, and problem-solving with real workflows.',
@@ -47,6 +44,9 @@ const resources = {
         },
         careerGoal: {
           heading: 'Career Goal'
+        },
+        interests: {
+          heading: 'Interests'
         },
         professionalSummary: {
           heading: 'Professional Summary'
@@ -172,9 +172,6 @@ const resources = {
           heading: 'สถิติสำคัญ',
           description: 'ภาพรวมโปรเจกต์ ภาษา และสิ่งที่กำลังโฟกัสเรียนรู้ในตอนนี้.'
         },
-        aboutPreview: {
-          heading: 'เกี่ยวกับฉัน'
-        },
         featuredProjects: {
           heading: 'โปรเจกต์เด่น',
           description: 'โปรเจกต์ส่วนตัวที่สร้างขึ้นเพื่อฝึกฝนการวิเคราะห์ธุรกิจ การออกแบบระบบ และการแก้ปัญหาจากเวิร์กโฟลว์จริง.',
@@ -188,6 +185,9 @@ const resources = {
         },
         careerGoal: {
           heading: 'เป้าหมายอาชีพ'
+        },
+        interests: {
+          heading: 'สิ่งที่สนใจ'
         },
         professionalSummary: {
           heading: 'สรุปประวัติวิชาชีพ'
@@ -313,9 +313,6 @@ const resources = {
           heading: '核心数据',
           description: '快速了解我的项目、语言能力，以及目前的学习重点。'
         },
-        aboutPreview: {
-          heading: '关于我'
-        },
         featuredProjects: {
           heading: '精选项目',
           description: '通过真实工作流程锻炼商业分析、系统设计与问题解决能力的个人项目。',
@@ -329,6 +326,9 @@ const resources = {
         },
         careerGoal: {
           heading: '职业目标'
+        },
+        interests: {
+          heading: '兴趣爱好'
         },
         professionalSummary: {
           heading: '专业总结'

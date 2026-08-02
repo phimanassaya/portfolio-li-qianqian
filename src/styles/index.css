@@ -56,6 +56,16 @@ html[lang='th'] {
   --font-body: 'Noto Sans Thai', 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
+/* Chinese falls back to the platform's generic CJK font (no CJK webface is loaded), and mobile
+   OSes tend to ship a visibly lighter default weight for it than desktop does at the same CSS
+   font-weight — body text reads as too faint on phones even though the color token is unchanged.
+   Scoped to mobile only; desktop's rendering is already fine and must stay untouched. */
+@media (max-width: 639px) {
+  html[lang='zh'] body {
+    font-weight: 600;
+  }
+}
+
 [data-theme='neon'] {
   color-scheme: dark;
   --font-heading-base: 'Prompt', ui-sans-serif, system-ui, sans-serif;

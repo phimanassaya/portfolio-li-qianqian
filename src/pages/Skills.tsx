@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { Languages as LanguagesIcon } from 'lucide-react';
 import Card from '../components/ui/Card';
 import SectionTitle from '../components/ui/SectionTitle';
 import useDocumentTitle from '../hooks/useDocumentTitle';
@@ -75,7 +76,10 @@ function Skills() {
           transition={{ duration: 0.6, delay: 0.15 }}
         >
           {languages.map((language) => (
-            <Card key={language.title.en} className="space-y-2">
+            <Card key={language.title.en} className="space-y-4">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-primary text-primary" aria-hidden="true">
+                <LanguagesIcon className="h-5 w-5" />
+              </span>
               <h3 className="font-heading text-2xl font-bold text-heading">{pickText(language.title, i18n.language)}</h3>
               <p className="text-sm leading-6 text-body">{pickText(language.level, i18n.language)}</p>
             </Card>

@@ -31,7 +31,6 @@ function Home() {
   const roles = pickList(client.personal.roles, i18n.language);
   const statistics = client.about.statistics;
   const featuredProjects = client.projects.filter((project) => project.featured);
-  const aboutPreviewCards = client.about.previewHighlights;
   const viewDetailsButton = t('home.featuredProjects.viewDetailsButton');
 
   const { firstName, lastName } = client.personal;
@@ -240,29 +239,6 @@ function Home() {
               </Card>
               );
             })}
-          </motion.div>
-        </section>
-
-        {/* ABOUT PREVIEW */}
-        <section aria-labelledby="about-preview-heading" className="pb-4">
-          <SectionTitle
-            id="about-preview-heading"
-            title={t('home.aboutPreview.heading')}
-            description={pickText(client.about.preview, i18n.language)}
-          />
-          <motion.div
-            className="grid gap-8 md:grid-cols-3"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            {aboutPreviewCards.map((card) => (
-              <Card key={card.title.en} className="space-y-4">
-                <span className="block h-px w-10 bg-primary" aria-hidden="true" />
-                <h3 className="font-heading text-xl font-bold text-heading">{pickText(card.title, i18n.language)}</h3>
-                <p className="text-sm leading-6 text-body">{card.description}</p>
-              </Card>
-            ))}
           </motion.div>
         </section>
       </div>

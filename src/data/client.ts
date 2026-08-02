@@ -15,9 +15,9 @@ export const client = {
     birthDate: "2005-05-16",
 
     roles: {
-      en: ["Sales", "Customer Service"],
-      th: ["งานขาย", "บริการลูกค้า"],
-      zh: ["销售", "客户服务"]
+      en: ["Sales", "Customer Service", "Accountant", "Software Developer", "Administrative Officer", "Engineer"],
+      th: ["งานขาย", "บริการลูกค้า", "นักบัญชี", "นักพัฒนาซอฟต์แวร์", "เจ้าหน้าที่ธุรการ", "วิศวกร"],
+      zh: ["销售", "客户服务", "会计", "软件开发工程师", "行政专员", "工程师"]
     },
 
     bio: {
@@ -61,9 +61,9 @@ export const client = {
     },
 
     goals: {
-      en: ["Sales", "Customer Service"],
-      th: ["งานขาย", "บริการลูกค้า"],
-      zh: ["销售", "客户服务"]
+      en: ["Sales", "Customer Service", "Accountant", "Software Developer", "Administrative Officer", "Engineer"],
+      th: ["งานขาย", "บริการลูกค้า", "นักบัญชี", "นักพัฒนาซอฟต์แวร์", "เจ้าหน้าที่ธุรการ", "วิศวกร"],
+      zh: ["销售", "客户服务", "会计", "软件开发工程师", "行政专员", "工程师"]
     },
 
     summary: {
@@ -118,39 +118,6 @@ export const client = {
       }
     ],
 
-    preview: {
-      en: "Enthusiastic and friendly professional with excellent interpersonal, communication, and customer service skills. Highly responsible, detail-oriented, and able to work effectively both independently and as part of a team. Experienced in welcoming customers, coordinating with tour groups, and providing information and assistance to visitors.",
-      th: "เป็นคนกระตือรือร้นและเป็นมิตร มีทักษะด้านมนุษยสัมพันธ์ การสื่อสาร และการบริการลูกค้าที่ยอดเยี่ยม มีความรับผิดชอบสูง ใส่ใจในรายละเอียด และสามารถทำงานได้อย่างมีประสิทธิภาพทั้งแบบทำงานคนเดียวและทำงานเป็นทีม มีประสบการณ์ในการต้อนรับลูกค้า ประสานงานกับกรุ๊ปทัวร์ และให้ข้อมูลรวมถึงความช่วยเหลือแก่ผู้มาเยือน",
-      zh: "热情友好，具备出色的人际沟通与客户服务能力。责任心强、注重细节，能够高效地独立工作，也能很好地融入团队。拥有接待客户、协调旅行团以及为访客提供信息与协助的经验。"
-    },
-
-    previewHighlights: [
-      {
-        title: { en: "Communication", th: "การสื่อสาร", zh: "沟通能力" },
-        description: ""
-      },
-      {
-        title: { en: "Customer Service", th: "การบริการลูกค้า", zh: "客户服务" },
-        description: ""
-      },
-      {
-        title: { en: "Coordination", th: "การประสานงาน", zh: "协调能力" },
-        description: ""
-      },
-      {
-        title: { en: "Teamwork", th: "การทำงานเป็นทีม", zh: "团队合作" },
-        description: ""
-      },
-      {
-        title: { en: "Problem Solving", th: "การแก้ไขปัญหา", zh: "解决问题能力" },
-        description: ""
-      },
-      {
-        title: { en: "Presentation", th: "การนำเสนอ", zh: "演讲表达能力" },
-        description: ""
-      }
-    ],
-
     footerTagline: {
       en: "Passionate about developing a career in Sales and Customer Service while contributing value and professionalism to the organization.",
       th: "มุ่งมั่นพัฒนาเส้นทางอาชีพด้านงานขายและบริการลูกค้า พร้อมสร้างคุณค่าและความเป็นมืออาชีพให้กับองค์กร",
@@ -173,7 +140,7 @@ export const client = {
   experience: [
     {
       company: "REST AT 88 COMPANY LIMITED",
-      position: { en: "Sales", th: "งานขาย", zh: "销售" },
+      position: { en: "Reception", th: "พนักงานต้อนรับ", zh: "前台接待" },
       employmentType: "",
       location: "Si Racha District, Chonburi, Thailand",
       startDate: { en: "December 30, 2024", th: "30 ธันวาคม 2024", zh: "2024年12月30日" },
@@ -315,7 +282,12 @@ export const client = {
     }
   },
 
-  interests: ["Reading", "Traveling", "Singing", "Listening to Music", "Gaming"],
+  interests: [
+    { title: { en: "Learning New Things", th: "เรียนรู้สิ่งใหม่ ๆ", zh: "学习新知识" } },
+    { title: { en: "Reading Books", th: "อ่านหนังสือ", zh: "阅读" } },
+    { title: { en: "Singing", th: "ร้องเพลง", zh: "唱歌" } },
+    { title: { en: "Gaming", th: "เล่นเกม", zh: "玩电子游戏" } }
+  ],
 
   contact: {
     email: "2838750896@qq.com",
